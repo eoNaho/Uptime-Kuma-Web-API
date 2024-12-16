@@ -2,14 +2,18 @@
 
 ## A REST API wrapper for [Uptime Kuma](https://github.com/louislam/uptime-kuma) using [Uptime-Kuma-API](https://github.com/lucasheld/uptime-kuma-api)
 
-Forked from [Uptime Kuma Web API](https://github.com/eoNaho/Uptime-Kuma-Web-API) 🌱
+Forked from [Uptime Kuma Web API](https://github.com/MedAziz11/Uptime-Kuma-Web-API) 🌱
 
 ---
 
 ## Endpoints 📡
 
-![Alt text](./images/1.png)
-![Alt text](./images/2.png)
+### Uptime Kuma API Screenshots 📸
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="./images/1.png" alt="Screenshot 1" width="300" />
+  <img src="./images/2.png" alt="Screenshot 2" width="300" />
+</div>
 
 ---
 
