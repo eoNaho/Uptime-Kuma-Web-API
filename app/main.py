@@ -1,6 +1,6 @@
-# main.py
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from routers import (
     statuspage,
@@ -22,6 +22,16 @@ from app_setup import initialize_app
 app = FastAPI(title=app_settings.PROJECT_NAME)
 app.router.redirect_slashes = True
 
+# Habilita CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Ou substitua "*" por domínios específicos
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos os métodos HTTP
+    allow_headers=["*"],  # Permite todos os cabeçalhos
+)
+
+# Inclui os routers
 app.include_router(user.router, prefix="/users", tags=["Users"])
 app.include_router(settings.router, prefix="/settings", tags=["Settings"])
 app.include_router(database.router, prefix="/database", tags=["DataBase"])
@@ -35,12 +45,10 @@ app.include_router(ping.router, prefix="/ping", tags=["Ping Average"])
 app.include_router(uptime.router, prefix="/uptime", tags=["Uptime"])
 app.include_router(auth.router, prefix="/login", tags=["Authentication"])
 
-
 @app.on_event("startup")
 async def startup_event():
     await initialize_app(app)
     logger.info("KumaAPI started...")
-
 
 @app.get("/", include_in_schema=False)
 async def root():
